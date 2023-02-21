@@ -54,6 +54,7 @@ public class ReceiveOrdersHandler{
             while ((lineInArray = reader.readNext()) != null && i < Integer.parseInt(pageSize)) {
                 try {
                     lineInArray[0].replaceAll("\"", "");
+                    System.out.println(lineInArray);
                     addStockDescriptionDtos.add(AddStockDescriptionDto.builder()
                             .orderId(lineInArray[0].replaceAll("\"", ""))
                             .createdDate(new java.util.Date(Long.parseLong(lineInArray[1].replaceAll("\"", ""))).toString())
